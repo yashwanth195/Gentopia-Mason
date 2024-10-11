@@ -13,6 +13,11 @@ from .gradio import *
 from .code_interpreter import PythonCodeInterpreter
 from .file_operation import WriteFile, ReadFile
 from .duckduckgo import DuckDuckGo
+from .python_PyPdf import Pdfreader
+from .recipe_suggester import RecipeSuggester
+from .ingredient_substituter import IngredientSubstituter
+from .dietary_restriction_adapter import DietaryRestrictionAdapter
+from .step_by_step_cooking_guide import StepByStepCookingGuide
 
 
 def load_tools(name: str) -> BaseTool:
@@ -43,6 +48,11 @@ def load_tools(name: str) -> BaseTool:
         "search_single_paper": SearchSinglePaper,
         "search_related_paper": SearchRelatedPaper,
         "search_cite_paper": SearchCitePaper,
+        "pdf_reader": Pdfreader,
+        "recipe_suggester": RecipeSuggester,
+        "ingredient_substituter": IngredientSubstituter,
+        "dietary_restriction_adapter": DietaryRestrictionAdapter,
+        "step_by_step_cooking_guide": StepByStepCookingGuide,
     }
     if name not in name2tool:
         raise NotImplementedError

@@ -1,0 +1,25 @@
+# Vanilla agent template
+name: recipe_agent
+version: 0.0.1
+type: vanilla
+description: A virtual assistant that suggests recipes based on available ingredients, dietary preferences, and user input.
+  Provides step-by-step instructions, alternative ingredients, and accommodates various cuisines.
+target_tasks:
+  - suggest recipes based on ingredients
+  - provide alternative ingredients for dietary restrictions
+  - recommend recipes based on time or difficulty level
+  - step-by-step cooking instructions
+
+llm:
+  model_name: gpt-4
+  params:
+    temperature: 0.0
+    top_p: 0.9
+    repetition_penalty: 1.0
+    max_tokens: 1024
+plugins:
+  - name: recipe_suggester
+  - name: ingredient_substituter
+  - name: dietary_restriction_adapter
+  - name: step_by_step_cooking_guide
+prompt_template: !prompt VanillaPrompt
